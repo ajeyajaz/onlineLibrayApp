@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Home(){
+function HomePage(){
     return(
         <>
             <h1>Welcome</h1>
@@ -14,4 +14,4 @@ function Home(){
     )
 }
 
-export default Home
+export default HomePage

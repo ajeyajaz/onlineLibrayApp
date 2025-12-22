@@ -1,0 +1,80 @@
+export const categories = [
+  {
+    id: 1,
+    name: "Fiction",
+    description: "Stories created from imagination",
+  },
+  {
+    id: 2,
+    name: "Non-Fiction",
+    description: "Based on real events and facts",
+  },
+  {
+    id: 3,
+    name: "Sci-Fi",
+    description: "Science, technology, and future concepts",
+  },
+  {
+    id: 4,
+    name: "Fantasy",
+    description: "Magic, myths, and imaginary worlds",
+  },
+  {
+    id: 5,
+    name: "Self-Help",
+    description: "Personal growth and motivation",
+  },
+];
+
+export const popularBooks = [
+  {
+    id: 101,
+    title: "The Silent Forest",
+    author: "Emily Stone",
+    category: "Fiction",
+    price: 399,
+    rating: 4.5,
+    image: "https://via.placeholder.com/150",
+    description: "A gripping fictional story set in a mysterious forest.",
+  },
+  {
+    id: 102,
+    title: "Think Like a Leader",
+    author: "James Carter",
+    category: "Self-Help",
+    price: 299,
+    rating: 4.2,
+    image: "https://via.placeholder.com/150",
+    description: "A guide to leadership and personal development.",
+  },
+  {
+    id: 103,
+    title: "Future Beyond Earth",
+    author: "Sarah Miles",
+    category: "Sci-Fi",
+    price: 499,
+    rating: 4.7,
+    image: "https://via.placeholder.com/150",
+    description: "A science fiction journey into space exploration.",
+  },
+  {
+    id: 104,
+    title: "History of Human Kind",
+    author: "David Allen",
+    category: "Non-Fiction",
+    price: 450,
+    rating: 4.3,
+    image: "https://via.placeholder.com/150",
+    description: "An insightful look into human civilization.",
+  },
+  {
+    id: 105,
+    title: "The Dragon’s Realm",
+    author: "Olivia Brown",
+    category: "Fantasy",
+    price: 380,
+    rating: 4.6,
+    image: "https://via.placeholder.com/150",
+    description: "A fantasy novel filled with dragons and magic.",
+  },
+];
