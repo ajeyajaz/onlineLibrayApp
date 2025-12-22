@@ -5,6 +5,12 @@ function HomePage() {
 
     return (
         <>
+            <nav className='flex justify-end gap-3'>
+                <a href="/">Home</a>
+                <a href="/">Popular books</a>
+                <a href="/">Add Book</a>
+            </nav>
+
             <h1>Welcome</h1>
             <div>
                 <h2>Book categories</h2>
