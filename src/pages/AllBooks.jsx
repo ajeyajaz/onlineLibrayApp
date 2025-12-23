@@ -1,19 +1,30 @@
 import BookGrid from "../components/BookGrid";
-import { bookCategories as allCategoryBooks } from "../utils/mockData"
-
+import { useOutletContext } from "react-router";
 
 function AllBooks() {
 
-    console.log(allCategoryBooks);
+    const { userInput, bookCategories } = useOutletContext();
+
+    const filteredBooks = bookCategories.map((cat) => {
+        return {
+            ...cat,
+            books:cat.books.
+                filter(book => 
+                    book.title.toLowerCase().includes(userInput) ||  
+                    book.author.toLowerCase().includes(userInput))        
+        }
+    });
+
+    // console.log('filter', filteredBooks);
 
     return (
         <>
-            {allCategoryBooks
+            {filteredBooks
                 .map(category =>
                     <BookGrid key={category.id}
                         id={category.id}
                         category={category.name}
-                        books={category.books}/>)}
+                        books={category.books} />)}
         </>
     )
 }
