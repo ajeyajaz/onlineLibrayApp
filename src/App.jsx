@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import HomePage from './pages/HomePage'
 import BrowseBook from './pages/BrowseBook'
@@ -14,9 +13,9 @@ function App() {
         <Routes>
           <Route index element={<HomePage />} />
 
-          <Route path='/hii' element={<BrowseBook />}>
-            <Route index element={<AllBooks />} />
-            <Route path='books/:category' element={<CategoryBooks />} />
+          <Route  element={<BrowseBook />}>
+            <Route path='/all-books' element={<AllBooks />} />
+            <Route path='/books/:category' element={<CategoryBooks />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,5 @@
 import BookGrid from "./BookGrid";
+import filterBook from "../utils/filterBook";
 import { useParams } from "react-router"
 import { useOutletContext } from "react-router";
 
@@ -8,28 +9,22 @@ function CategoryBooks() {
     const { category } = useParams();
 
 
-    const cat = bookCategories.filter( cat => cat.name.toLowerCase() === category.toLowerCase())
-        
+    const cat = bookCategories.filter(cat => {
+        return cat.name.toLowerCase() === category.toLocaleLowerCase()
+    })
 
-    if (!category) {
+
+    if (!cat.length) {
         return <p>category not found...</p>
     }
 
-    const [filtered] = cat.map((cat) => {
-        return {
-            ...cat,
-            books: cat.books.
-                filter(book =>
-                    book.title.toLowerCase().includes(userInput) ||
-                    book.author.toLowerCase().includes(userInput))
-        }
-    });
+    const [filtered] = filterBook(cat, userInput);
 
-
+    
     return (
         <>
             {
-                <BookGrid id={filtered.id} category={filtered.category} books={filtered.books} />
+                <BookGrid category={filtered.category} books={filtered.books} />
             }
         </>
     )

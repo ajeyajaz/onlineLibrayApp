@@ -5,7 +5,7 @@ import {bookCategories} from '../utils/mockData'
 
 function BrowseBook() {
 
-    const categories = ["fiction", "non-fiction", "sci-fi", "Fantasy", "Self-Help"];
+    const categories = ["fiction", "non-fiction", "sci-fi", "fantasy", "self-help"];
 
     const [userInput, setUserInput] = useState('');
 
