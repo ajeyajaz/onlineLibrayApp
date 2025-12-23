@@ -2,7 +2,7 @@ import BookGrid from "./BookGrid";
 import { useParams } from "react-router"
 import { useOutletContext } from "react-router";
 
-function FilterBooks() {
+function CategoryBooks() {
 
     const { userInput, bookCategories } = useOutletContext();
     const { category } = useParams();
@@ -35,4 +35,4 @@ function FilterBooks() {
     )
 }
 
-export default FilterBooks
+export default CategoryBooks
