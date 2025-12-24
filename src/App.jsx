@@ -2,7 +2,7 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import BrowseBook from './pages/BrowseBook'
 import AllBooks from './pages/AllBooks'
-import CategoryBooks from './components/CategoryBooks'
+import CategoryBooks from './pages/CategoryBooks'
 import { BrowserRouter, Routes, Route } from 'react-router'
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
         <Routes>
           <Route index element={<HomePage />} />
 
-          <Route  element={<BrowseBook />}>
-            <Route path='/all-books' element={<AllBooks />} />
-            <Route path='/books/:category' element={<CategoryBooks />} />
+          <Route  path='/books' element={<BrowseBook />}>
+            <Route index element={<AllBooks />} />
+            <Route path=':category' element={<CategoryBooks />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,14 +1,15 @@
 import React from 'react'
 import { categories, popularBooks } from '../utils/mockData'
+import { Link } from 'react-router'
 
 function HomePage() {
 
     return (
         <>
             <nav className='flex justify-end gap-3'>
-                <a href="/">Home</a>
-                <a href="/">Popular books</a>
-                <a href="/">Add Book</a>
+                <Link to='/'>Home</Link>
+                <Link to='/books'>Browse Books</Link>
+                <Link to='/'>Add Book</Link>
             </nav>
 
             <h1>Welcome</h1>

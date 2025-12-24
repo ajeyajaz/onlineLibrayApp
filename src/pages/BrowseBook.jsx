@@ -1,37 +1,28 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import { Outlet } from "react-router";
-import {bookCategories} from '../utils/mockData'
+import { useBooks } from "../context/BookContext";
+import NavBar from "../components/NavBar";
+import SearchBox from "../components/SearchBox";
+
 
 function BrowseBook() {
 
-    const categories = ["fiction", "non-fiction", "sci-fi", "fantasy", "self-help"];
+    const {categories,setSearch} = useBooks();
 
-    const [userInput, setUserInput] = useState('');
-
-    const handleOnChange = e => {
-        setUserInput(e.target.value);
+    const handleSearch = e => {
+        setSearch(e.target.value); 
     }
- 
+
 
     return (
         <>
-            <nav className="flex justify-end gap-3">
-                {categories.map(cat => <Link key={cat} to={`books/${cat}`}>{cat}</Link>)}
-            </nav>
+            <NavBar categories={categories} />
 
-            <div>
-                <input
-                    type="text"
-                    className="border w-3xl"
-                    onChange={handleOnChange} />
+            <SearchBox onChange={handleSearch}/>
 
-            </div>
-
-            <Outlet context={{
-                userInput: userInput.toLowerCase(),
-                bookCategories: bookCategories
-                }}/>
+                {/* a child page will be dilsplayed here ->allbooks,categoryBooks */}
+            <Outlet/> 
+            
         </>
 
     )

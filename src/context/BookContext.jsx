@@ -1,16 +1,23 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { bookCategories as categories } from "../utils/mockData";
 
 const BookContext = createContext();
 
 
-export function BookProvider({children}){
+export function BookProvider({ children }) {
 
-    <BookContext.Provider value={
-        {categories}
-    }>
-        {children}
-    </BookContext.Provider>
+    const [search, setSearch] = useState('')
+    return (
+        <BookContext.Provider value={
+            {
+                categories,
+                search,
+                setSearch
+            }
+        }>
+            {children}
+        </BookContext.Provider>
+    )
 }
 
 

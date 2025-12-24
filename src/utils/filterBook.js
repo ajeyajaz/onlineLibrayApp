@@ -1,15 +1,16 @@
 
-export default function filterBook(bookCategories, value){ 
+export default function filterBook(categories, query) {
 
     // filters by an id or author
-    return bookCategories.map((cat) => {
+    const data = categories.map((cat) => {
         return {
             ...cat,
-            books:cat.books. 
-                filter(book => 
-                    book.title.toLowerCase().includes(value) ||  
-                    book.author.toLowerCase().includes(value))        
+            books: cat.books.
+                filter(book =>
+                    book.title.toLowerCase().includes(query) ||
+                    book.author.toLowerCase().includes(query))
         }
-    });
+    }).filter(cat => cat.books.length > 0);
+    return data;
 }
 
