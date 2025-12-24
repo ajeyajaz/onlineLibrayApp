@@ -1,20 +1,19 @@
 import BookGrid from "../components/BookGrid";
-import filterBook from "../utils/filterBook";
-import { useBooks} from "../context/BookContext";
+import { useOutletContext } from "react-router";
+
 function AllBooks() {
 
-    
-    const {categories, search} = useBooks();
 
-    const filteredBooks = filterBook(categories, search);
+    const { filteredCategories } = useOutletContext();
 
-    if(!filteredBooks.length){
+
+    if (!filteredCategories.length) {
         return <p>no books found</p>
     }
-    
+
     return (
         <>
-            {filteredBooks
+            {filteredCategories
                 .map(category =>
                     <BookGrid key={category.id}
                         category={category.name}

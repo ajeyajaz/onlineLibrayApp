@@ -1,12 +1,11 @@
-export default function SearchBox({onChange}) {
+export default function SearchBox({ onChange, value }) {
 
     return (
         <div>
-            <input
+            <input value={value}
                 type="text"
                 className="border w-3xl"
                 onChange={onChange} />
-
         </div>
     )
 }   
