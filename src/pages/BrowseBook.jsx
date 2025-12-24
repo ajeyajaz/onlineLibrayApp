@@ -3,7 +3,7 @@ import { Outlet, useParams, useMatch, Link } from "react-router";
 import { useBooks } from "../context/BookContext";
 import NavBar from "../components/NavBar";
 import SearchBox from "../components/SearchBox";
-import filterBook from "../utils/filterBook";
+import {filterBook} from "../utils/filterBook";
 
 function BrowseBook() {
 

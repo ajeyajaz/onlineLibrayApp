@@ -1,7 +1,6 @@
 import BookGrid from "../components/BookGrid";
-import filterBook from "../utils/filterBook";
-import { useParams, useOutletContext } from "react-router"
-import { useBooks } from "../context/BookContext";
+import { useOutletContext } from "react-router"
+
 
 function CategoryBooks() {
 
@@ -16,7 +15,7 @@ function CategoryBooks() {
     return (
         <>
             {
-                <BookGrid category={filteredCategories[0].category} books={filteredCategories[0].books} />
+                <BookGrid category={filteredCategories[0].name} books={filteredCategories[0].books} />
             }
         </>
     )

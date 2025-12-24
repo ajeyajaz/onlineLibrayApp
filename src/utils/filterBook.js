@@ -1,5 +1,5 @@
 
-export default function filterBook(categories, query) {
+export function filterBook(categories, query) {
 
     // filters by an id or author
     const data = categories.map((cat) => {
@@ -14,3 +14,9 @@ export default function filterBook(categories, query) {
     return data;
 }
 
+
+export function filterCategory(categories, query){
+    return categories.find(cat => {
+        return cat.name.toLowerCase() === query;
+    });
+}

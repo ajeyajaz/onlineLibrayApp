@@ -6,7 +6,7 @@ function BookGrid({category, books }) {
             <h2 className="text-2xl">{category}</h2>
 
             <div className="flex flex-1 flex-wrap gap-2">
-                {books.map(book => <BookCard book={book} key={book.id}/>)} 
+                {books.map((book) => <BookCard book={book} category={category} key={book.id} />)} 
             </div>
         </>
     )

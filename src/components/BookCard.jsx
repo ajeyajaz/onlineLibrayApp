@@ -1,6 +1,7 @@
+import { Link } from "react-router"
 
-function BookCard({book}){
-
+function BookCard({book, category}){
+  
     return(
         <div className="w-40 h-50">
             <div className="h-30 object-cover">
@@ -8,7 +9,7 @@ function BookCard({book}){
             </div>
             <div>
                 <p>{book.title}</p>
-                <a href="/">more</a>
+                <Link to={`/${category}/${book.id}`}>more</Link>
             </div>
         </div>
     )
