@@ -4,6 +4,7 @@ import BrowseBook from './pages/BrowseBook'
 import AllBooks from './pages/AllBooks'
 import CategoryBooks from './pages/CategoryBooks'
 import BookDetail from './pages/BookDetail'
+import AddBook from './pages/AddBook'
 import { BrowserRouter, Routes, Route } from 'react-router'
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             path=':category/:id'
             element={<BookDetail />}
           />
+          <Route
+            path='/add-book'
+            element={ <AddBook/>} />
         </Routes>
       </BrowserRouter>
     </>

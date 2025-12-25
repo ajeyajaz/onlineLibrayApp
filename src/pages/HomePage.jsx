@@ -9,7 +9,7 @@ function HomePage() {
             <nav className='flex justify-end gap-3'>
                 <Link to='/'>Home</Link>
                 <Link to='/books'>Browse Books</Link>
-                <Link to='/'>Add Book</Link>
+                <Link to='/add-book'>Add Book</Link>
             </nav>
 
             <h1>Welcome</h1>
