@@ -5,17 +5,16 @@ import { useOutletContext } from "react-router"
 function CategoryBooks() {
 
 
-    
-    const { filteredCategories } = useOutletContext();
+    const { filteredBook } = useOutletContext();
 
-    if (!filteredCategories.length) {
+    if (!filteredBook.length) {
         return <p>no books found...</p>
     }
 
     return (
         <>
             {
-                <BookGrid category={filteredCategories[0].name} books={filteredCategories[0].books} />
+                <BookGrid category={filteredBook[0].name} books={filteredBook[0].books} />
             }
         </>
     )

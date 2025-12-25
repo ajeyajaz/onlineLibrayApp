@@ -1,19 +1,17 @@
 import { useParams, useNavigate } from "react-router"
-import { useBooks } from "../context/BookContext";
-import { filterCategory} from "../utils/filterBook";
+import { filterCategory, getBookById} from "../utils/filterBook";
 import BookDetailCard from "../components/BookDetailCard";
-
+import { bookCategories as allBook } from "../utils/mockData";
 
 function BookDetail() {
 
     const { category, id } = useParams();
-    const { categories } = useBooks();
     const navigate = useNavigate();
 
-    const cat = filterCategory(categories, category.toLowerCase());
+    const cat = filterCategory(allBook, category.toLowerCase());
+    const book = getBookById(cat.books, id);
     
-    const book = cat.books.find((book) => book.id == id);
-    
+    if(!book) return <p>no book found</p>;
 
     return (
         <>

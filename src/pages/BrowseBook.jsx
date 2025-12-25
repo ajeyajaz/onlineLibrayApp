@@ -1,33 +1,35 @@
-import { useState } from "react";
-import { Outlet, useParams, useMatch, Link } from "react-router";
-import { useBooks } from "../context/BookContext";
+import { useEffect, useState } from "react";
+import { Outlet, useParams, useMatch, Link} from "react-router";
 import NavBar from "../components/NavBar";
 import SearchBox from "../components/SearchBox";
-import {filterBook} from "../utils/filterBook";
+import { filterBookBytitleAuthor, filterCategory } from "../utils/filterBook";
+import { bookCategories } from "../utils/mockData";
+
 
 function BrowseBook() {
 
     const [search, setSearch] = useState('');
-    const { categories } = useBooks(); // all category books data 
+    const [allBook] = useState(bookCategories);
+    const [filteredBook, setFilteredBook] = useState([]);
 
-    const params = useParams();
-    const isCategoryPage = useMatch("/books/:category");  //to check the user on the CategoryPage
 
-    let filteredCategories = [];
+    const { category } = useParams();
+    const isCategoryPage = useMatch("/books/:category");
 
-    //if it's category page ? dispay only a category books
-    if (isCategoryPage) {
+    useEffect(() => {
+        
+        if (isCategoryPage) {
+            const cat = filterCategory(allBook, category.toLowerCase());
+            if(!cat) return;
+            
+            setFilteredBook(filterBookBytitleAuthor([cat], search.toLowerCase()));
+        }
+        else {
+            setFilteredBook(filterBookBytitleAuthor(allBook, search.toLowerCase()));
+        }
 
-        const cat = categories.find(cat => {
-            return cat.name.toLowerCase() === params.category.toLowerCase();
-        });
+    }, [isCategoryPage, search]);
 
-        filteredCategories = filterBook([cat], search.toLowerCase());
-    }
-    // else display all categories books
-    else {
-        filteredCategories = filterBook(categories, search.toLowerCase());
-    }
 
 
     const handleSearch = e => {
@@ -39,15 +41,14 @@ function BrowseBook() {
         <>
             <NavBar>
                 <nav className="flex justify-end gap-3">
-                    {categories.map(cat => <Link key={cat.id} to={`${cat.name}`}>{cat.name}</Link>)}
+                    {allBook.map(cat => <Link key={cat.id} to={`${cat.name}`}>{cat.name}</Link>)}
                 </nav>
             </NavBar>
 
             <SearchBox onChange={handleSearch} value={search} />
 
-            {/* a child page will be dilsplayed here ->allbooks,categoryBooks */}
             <Outlet context={{
-                filteredCategories,
+                filteredBook
             }} />
         </>
 
