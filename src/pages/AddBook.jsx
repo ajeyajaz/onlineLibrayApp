@@ -68,7 +68,7 @@ function AddBook() {
         book.rating = parseFloat(rating);
 
         dispatch(addBook(book));
-        navigate('/books');
+        navigate('/books', {replace:true})
     }
 
     return (

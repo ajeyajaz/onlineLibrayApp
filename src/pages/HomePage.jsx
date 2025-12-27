@@ -1,12 +1,10 @@
-import React from 'react'
 import { categories, bookCategories } from '../utils/mockData'
 import { getPopularBooks } from '../utils/filterBook'
-import BookDetailCard from '../components/BookDetailCard'
+import BookGrid from '../components/BookGrid' 
 import { Link } from 'react-router'
 
 function HomePage() {
     const popularBooks = getPopularBooks(bookCategories);
-
     return (
         <>
             <nav className='flex justify-end gap-3'>
@@ -23,7 +21,7 @@ function HomePage() {
             <div>
                 <h2> Popular books</h2>
                 {popularBooks
-                    .map(book => <BookDetailCard book={book} key={book.id}/>)}
+                    .map(cat => <BookGrid books={cat.books} category={cat.name} key={cat.id}/>)}
             </div>
         </>
     )

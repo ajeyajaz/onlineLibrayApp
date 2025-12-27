@@ -27,9 +27,13 @@ export function getBookById(books, id) {
 
 }
 
-export function getPopularBooks(categories) {
-    return categories
-        .flatMap(category => category.books)
-        .filter(book => book.popular)
-
+export function getPopularBooks(books) {
+    const data = books.map((cat) => {
+        return {
+            ...cat,
+            books: cat.books.
+                filter(book => book.popular)
+        }
+    }).filter(cat => cat.books.length > 0);
+    return data;
 }

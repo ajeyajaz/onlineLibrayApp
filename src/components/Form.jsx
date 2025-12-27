@@ -1,6 +1,4 @@
-
-function Form({onSubmit, children}) {
-    
+function Form({ onSubmit, children}) {
     return (
         <>
             <form onSubmit={onSubmit}>
