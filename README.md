@@ -1,16 +1,101 @@
-# React + Vite
+# Online Library System (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online library system built using **React**, **Vite**, **React Router**, and **Redux Toolkit**.  
+This application allows users to browse books by category, view detailed book information, add new books, and handle invalid routes properly.
 
-Currently, two official plugins are available:
+**GitHub Repository**  
+https://github.com/ajeyajaz/onlineLibrayApp.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- React Router DOM
+- Redux Toolkit
+- Tailwind CSS
+- JavaScript (ES6+)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+### Home Page
+- Welcome message
+- List of book categories (Fiction, Non-Fiction, Sci-Fi, Fantasy, Self-Help)
+- Popular books displayed as cards
+- Navigation bar with links:
+  - Home
+  - Browse Books
+  - Add Book
+
+---
+
+### Browse Books Page
+- Displays books filtered by category
+- Dynamic routing using `/books/:category`
+- Search books by **title or author**
+- Each book has a **View Details** link
+
+---
+
+### Book Details Page
+- Dynamic route for each book
+- Displays:
+  - Title
+  - Author
+  - Description
+  - Rating
+- Includes **Back to Browse Books** button
+
+---
+
+### Add Book Page
+- Form to add a new book
+- Form validation for all fields
+- Books state managed using **Redux Toolkit**
+- After submission:
+  - Redirects to Browse Books page
+  - Newly added book appears at the top
+
+---
+
+### 404 Page (Not Found)
+- Handles undefined routes
+- Displays invalid route URL
+
+---
+
+## How to Run the Application
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/ajeyajaz/onlineLibrayApp.git
+```
+
+### 2️⃣ Go to project folder
+```bash
+cd onlineLibrayApp
+```
+
+### 3️⃣ Install dependencies
+```bash
+npm install
+```
+
+### 4️⃣ Start development server
+```bash
+npm run dev
+```
+
+### 5️⃣ Open in browser
+```
+http://localhost:5173
+```
+
+---
+
+## 👨‍💻 Author
+
+**Ajay H**  
+Frontend Developer (React)
