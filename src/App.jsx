@@ -5,6 +5,7 @@ import AllBooks from './pages/AllBooks'
 import CategoryBooks from './pages/CategoryBooks'
 import BookDetail from './pages/BookDetail'
 import AddBook from './pages/AddBook'
+import NotFound from './pages/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router'
 
 function App() {
@@ -37,7 +38,10 @@ function App() {
           />
           <Route
             path='/add-book'
-            element={ <AddBook/>} />
+            element={<AddBook />} />
+          <Route
+            path='*'
+            element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
     </>
