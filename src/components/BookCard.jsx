@@ -3,13 +3,13 @@ import { Link } from "react-router"
 function BookCard({book, category}){
   
     return(
-        <div className="w-40 h-50">
-            <div className="h-30 object-cover">
-                <img src={book.image} alt="" />
+        <div className="w-60">
+            <div >
+                <img src={book.image} alt="" className="w-[100%] h-60 object-cover" />
             </div>
             <div>
-                <p>{book.title}</p>
-                <Link to={`/${category}/${book.id}`}>more</Link>
+                <p className="text-center text-lg p-2">{book.title}</p>
+                <Link to={`/${category}/${book.id}`} className="border block p-1 text-center bg-blue-200 rounded-md">more</Link>
             </div>
         </div>
     )

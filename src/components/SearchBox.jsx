@@ -1,10 +1,11 @@
 export default function SearchBox({ onChange, value }) {
 
     return (
-        <div>
+        <div className="flex justify-center my-3">
             <input value={value}
                 type="text"
-                className="border w-3xl"
+                placeholder="search by Book title or author"
+                className="w-[60%] outline-0 border p-1 "
                 onChange={onChange} />
         </div>
     )
