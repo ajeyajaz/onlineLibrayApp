@@ -1,6 +1,6 @@
-import BookGrid from "../components/BookGrid";
+import BookGrid from "../components/BookGrid"
 import { useOutletContext } from "react-router"
-
+import ItemNotFound from '../components/ItemNotFound'
 
 function CategoryBooks() {
 
@@ -8,7 +8,7 @@ function CategoryBooks() {
     const { filteredBook } = useOutletContext();
 
     if (!filteredBook.length) {
-        return <p>no books found...</p>
+        return <ItemNotFound message={'no book found'}/>
     }
 
     return (
