@@ -15,14 +15,21 @@ export function filterBookBytitleAuthor(books, query) {
 }
 
 
-export function filterCategory(books, query){
+export function filterCategory(books, query) {
     return books.find(cat => {
         return cat.name.toLowerCase() === query;
     });
 }
 
 
-export function getBookById(books,id){
-    return books.find( book => book.id === id);
+export function getBookById(books, id) {
+    return books.find(book => book.id === id);
+
+}
+
+export function getPopularBooks(categories) {
+    return categories
+        .flatMap(category => category.books)
+        .filter(book => book.popular)
 
 }

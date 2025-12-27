@@ -10,7 +10,7 @@ function BookDetailCard({book}) {
                 <p>{book.title}</p>
                 <p>{book.author}</p>
                 <p>{book.description}</p>
-                <p>{book.rate}</p>
+                <p>{book.rating}</p>
             </div>
         </div>
     )

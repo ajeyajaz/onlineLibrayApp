@@ -50,17 +50,17 @@ function BrowseBook() {
             <SearchBox onChange={handleSearch} value={search} />
 
             {!isCategoryPage && <div>
-                {newBooks.length && <h2>new books</h2>}
+                {newBooks.length > 0 && <h2>new books</h2>}
                 {
                     newBooks.map(book =>
-                        <div className="w-40 h-30 border">
-                            <div>
-                                <p>{book.title}</p>
-                                <p>{book.author}</p>
-                                <p>{book.description}</p>
-                                <p>{book.ratings}</p>
-                            </div>
-                        </div>)
+
+                        <div key={book.id}>
+                            <p>{book.title}</p>
+                            <p>{book.author}</p>
+                            <p>{book.description}</p>
+                            <p>{book.ratings}</p>
+                        </div>
+                    )
                 }
             </div>}
 

@@ -19,10 +19,11 @@ function AddBook() {
     const [errMsg, setErrMsg] = useState('');
 
     const book = {
+        id: crypto.randomUUID(),
         title: '',
         author: '',
         description: '',
-        ratings: '',
+        rating: '',
     }
 
     const handleSubmit = (e) => {
@@ -31,7 +32,7 @@ function AddBook() {
         const title = titleRef.current.value.trim();
         const author = authorRef.current.value.trim();
         const description = descriptionRef.current.value.trim();
-        const ratings = ratingsRef.current.value.trim();
+        const rating = ratingsRef.current.value.trim();
 
         
         if (!title) {
@@ -49,13 +50,13 @@ function AddBook() {
             return;
         }
 
-        if (!ratings) {
-            setErrMsg('the ratings field cannot be empty..');
+        if (!rating) {
+            setErrMsg('the rating field cannot be empty..');
             return;
         }
 
-        if (isNaN(ratings) || (parseFloat(ratings) < 0 || parseFloat(ratings) > 5)) {
-            setErrMsg('the ratings must be between 1 to 5..');
+        if (isNaN(rating) || (parseFloat(rating) < 0 || parseFloat(rating) > 5)) {
+            setErrMsg('the rating must be between 1 to 5..');
             return;
         }
 
@@ -64,7 +65,7 @@ function AddBook() {
         book.title = title;
         book.author = author;
         book.description = description;
-        book.ratings = parseFloat(ratings);
+        book.rating = parseFloat(rating);
 
         dispatch(addBook(book));
         navigate('/books');

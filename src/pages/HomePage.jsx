@@ -1,8 +1,11 @@
 import React from 'react'
-import { categories, popularBooks } from '../utils/mockData'
+import { categories, bookCategories } from '../utils/mockData'
+import { getPopularBooks } from '../utils/filterBook'
+import BookDetailCard from '../components/BookDetailCard'
 import { Link } from 'react-router'
 
 function HomePage() {
+    const popularBooks = getPopularBooks(bookCategories);
 
     return (
         <>
@@ -19,17 +22,8 @@ function HomePage() {
             </div>
             <div>
                 <h2> Popular books</h2>
-                <div className='flex flex-wrap gap-2'>
-                    {popularBooks.map(book => {
-                        return <div className='w-40 border' key={book.id}>
-                            <div>
-                                <img src={book.image} alt="" className='w-40 h-30 object-cover' />
-                                <a href={'/'}>More details</a>
-                            </div>
-                        </div>
-                    })
-                    }
-                </div>
+                {popularBooks
+                    .map(book => <BookDetailCard book={book} key={book.id}/>)}
             </div>
         </>
     )
