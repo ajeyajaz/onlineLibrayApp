@@ -34,7 +34,7 @@ function AddBook() {
         const description = descriptionRef.current.value.trim();
         const rating = ratingsRef.current.value.trim();
 
-        
+
         if (!title) {
             setErrMsg('the title field cannot be empty..');
             return;
@@ -68,7 +68,7 @@ function AddBook() {
         book.rating = parseFloat(rating);
 
         dispatch(addBook(book));
-        navigate('/books', {replace:true})
+        navigate('/books', { replace: true })
     }
 
     return (
@@ -80,21 +80,22 @@ function AddBook() {
                     <input
                         type="text"
                         placeholder="title name"
-                        className="border"
+                        className="w-full px-3 py-2 border rounded-md outline-none  focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         ref={titleRef} />
                 </div>
                 <div>
                     <input
                         type="text"
                         placeholder="author name"
-                        className="border"
+                        className="w-full px-3 py-2 border rounded-md outline-none  focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         ref={authorRef}
                     />
                 </div>
                 <div>
                     <textarea
-                        className="border"
                         placeholder="description"
+                        className="w-full px-3 py-2 border rounded-md resize-none outline-none
+             focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         ref={descriptionRef}
                     >
                     </textarea>
@@ -103,11 +104,16 @@ function AddBook() {
                     <input
                         type="text"
                         placeholder="ratings 1 to 5"
-                        className="border"
+                        className="w-full px-3 py-2 border rounded-md outline-none  focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         ref={ratingsRef}
                     />
                 </div>
-                <button type="submit">AddBook</button>
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white py-2 rounded-md font-medium
+             hover:bg-blue-700 transition
+             disabled:opacity-50 disabled:cursor-not-allowed"
+                >AddBook</button>
             </Form>
         </>
     )

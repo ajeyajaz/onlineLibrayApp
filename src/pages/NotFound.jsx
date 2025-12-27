@@ -3,13 +3,12 @@ import { Link } from "react-router";
 
 function NotFound() {
     const location = useLocation();
-    const prefixUrl = 'http://localhost:5173';
 
     return (
-        <>
-            <p>the past does not exist {prefixUrl + location.pathname}</p>
-            <Link to='/'>back to home</Link>
-        </>
+        <div className="flex flex-col items-center gap-3 p-6">
+            <p className="text-gray-700 font-mono">the past does not exist {location.pathname}</p>
+            <Link to='/' className="text-gray-700">back to home</Link>
+        </div>
     )
 }
 

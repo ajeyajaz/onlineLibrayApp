@@ -49,20 +49,26 @@ function BrowseBook() {
 
             <SearchBox onChange={handleSearch} value={search} />
 
-            {!isCategoryPage && <div>
-                {newBooks.length > 0 && <h2>new books</h2>}
-                {
-                    newBooks.map(book =>
+            {!isCategoryPage && newBooks.length > 0 && (
+                <div className="mt-6">
+                    <h2 className="mb-4 text-xl font-semibold">New Books</h2>
 
-                        <div key={book.id}>
-                            <p>{book.title}</p>
-                            <p>{book.author}</p>
-                            <p>{book.description}</p>
-                            <p>{book.ratings}</p>
-                        </div>
-                    )
-                }
-            </div>}
+                    <div className="flex gap-4">
+                        {newBooks.map(book => (
+                            <div
+                                key={book.id}
+                                className="w-64 shrink-0 rounded-md border p-4 overflow-hidden"
+                            >
+                                <p className="font-medium">{book.title}</p>
+                                <p className="text-sm text-gray-600">{book.author}</p>
+                                <p className="text-sm line-clamp-3">{book.description}</p>
+                                <p className="text-sm mt-2">⭐ {book.rating}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
 
             <Outlet context={{
                 filteredBook

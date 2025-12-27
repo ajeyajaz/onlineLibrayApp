@@ -1,16 +1,22 @@
 
-function BookDetailCard({book}) {
+function BookDetailCard({ book }) {
 
     return (
-        <div className="border w-40 h-50">
-            <div className="h-20">
-                <img src={book.image} alt="" className="object-cover" />
+        <div className="w-64 shrink-0 rounded-lg border bg-white shadow-sm overflow-hidden">
+            <div className="h-40 w-full">
+                <img src={book.image} alt={book.title} className="h-full w-full object-cover" />
             </div>
-            <div>
-                <p>{book.title}</p>
-                <p>{book.author}</p>
-                <p>{book.description}</p>
-                <p>{book.rating}</p>
+            <div className="p-3 space-y-1">
+                <p className="font-semibold text-sm">{book.title}</p>
+                <p className="text-xs text-gray-500">{book.author}</p>
+
+                <p className="text-xs text-gray-600 line-clamp-2">
+                    {book.description}
+                </p>
+
+                <p className="text-xs font-medium mt-1">
+                    ⭐ {book.rating}
+                </p>
             </div>
         </div>
     )
